@@ -1,3 +1,4 @@
+import 'package:fitness_demo/api.dart';
 import 'package:fitness_demo/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -84,58 +85,64 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   Expanded(child: Container()),
-                  Row(
-                    children: [
-                      Expanded(
-                          child: Container(
-                              child: Text(
-                        "Today's Activity",
-                        style: TextStyle(
-                          color: Colors.blueGrey,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
+                  Container(
+                    margin: EdgeInsets.only(bottom: 10),
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: Container(
+                                child: Text(
+                          "Today's Activity",
+                          style: TextStyle(
+                            color: Colors.blueGrey,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ))),
+                        Expanded(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "Details",
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.blueGrey),
+                              ),
+                              Icon(
+                                Icons.arrow_forward,
+                                size: 15,
+                                color: Colors.blueGrey,
+                              )
+                            ],
+                          ),
                         ),
-                      ))),
-                      Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              "Details",
-                              style: TextStyle(
-                                  fontSize: 20, color: Colors.blueGrey),
-                            ),
-                            Icon(
-                              Icons.arrow_forward,
-                              color: Colors.blueGrey,
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   Row(
                     children: [
                       Expanded(
                         child: Card(
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                "assets/image/step.png",
-                                height: 70,
-                              ),
-                              Text(
-                                "STEPS",
-                                style: TextStyle(color: Colors.blueGrey),
-                              ),
-                              Text(
-                                "1205",
-                                style: TextStyle(
-                                    color: Colors.blueGrey,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30),
-                              ),
-                            ],
+                          child: Container(
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  "assets/image/step.png",
+                                  height: 50,
+                                ),
+                                Text(
+                                  "STEPS",
+                                  style: TextStyle(color: Colors.blueGrey),
+                                ),
+                                Text(
+                                  "1205",
+                                  style: TextStyle(
+                                      color: Colors.blueGrey,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 35),
+                                ),
+                              ],
+                            ),
                           ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
@@ -153,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Image.asset(
                                 "assets/image/cal.png",
-                                height: 70,
+                                height: 50,
                               ),
                               Text(
                                 "CALORIES",
@@ -164,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                                 style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 30),
+                                    fontSize: 35),
                               )
                             ],
                           ),
@@ -184,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Image.asset(
                                 "assets/image/bpm.png",
-                                height: 70,
+                                height: 50,
                               ),
                               Text(
                                 "BPM",
@@ -195,7 +202,7 @@ class _HomePageState extends State<HomePage> {
                                 style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 30),
+                                    fontSize: 35),
                               )
                             ],
                           ),
@@ -212,6 +219,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   Container(
+                    margin: EdgeInsets.only(top: 10,bottom: 10),
                     child: Row(
                       children: [
                         Expanded(
@@ -231,10 +239,11 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 "Details",
                                 style: TextStyle(
-                                    color: Colors.blueGrey, fontSize: 20),
+                                    color: Colors.blueGrey, fontSize: 15),
                               ),
                               Icon(
                                 Icons.arrow_forward,
+                                size: 15,
                                 color: Colors.blueGrey,
                               )
                             ],
@@ -410,6 +419,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Container(
+                    margin: EdgeInsets.only(top: 10,),
                     child: Row(
                       children: [
                         Expanded(
@@ -431,10 +441,11 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 "Details",
                                 style: TextStyle(
-                                    color: Colors.blueGrey, fontSize: 20),
+                                    color: Colors.blueGrey, fontSize: 15),
                               ),
                               Icon(
                                 Icons.arrow_forward,
+                                size: 15,
                                 color: Colors.blueGrey,
                               )
                             ],
@@ -668,7 +679,9 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ApiDemo(),));
+                                },
                                 child: Text('Start Workout'),
                               ),
                             ),
